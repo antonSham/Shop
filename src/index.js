@@ -2,19 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Head extends React.Component {
-  render () {
-    const Title = 'The best toe shop';
-    return (
-      <div className="head">
-        <a href="#">
-          <img src={require("../data/img/logo.jpg")} alt="logo" />
-        </a>
-        <h1 className="title">{Title}</h1>
-      </div>
-    );
-  }
-}
+const Head = () => (
+  <div className="head">
+    <a href="#">
+      <img src={require("../data/img/logo.jpg")} alt="logo" />
+    </a>
+    <h1 className="title">The best toe shop</h1>
+  </div>
+);
 
 class Body extends React.Component {
   constructor() {
