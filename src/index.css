@@ -1,0 +1,24 @@
+.head img {
+  width : 100px;
+  float : left;
+  margin : 10px;
+  margin-right: 50px;
+}
+.title {
+  line-height: 120px;
+  font-size: 30pt;
+}
+
+.footer {
+  background-color: #777;
+  height: 20px;
+}
+
+
+.items > .item {
+  display: inline-block;
+  border: 1px solid black;
+  width: 300px;
+  margin: 10px;
+  align: center;
+}
