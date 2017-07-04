@@ -1,6 +1,6 @@
 import React, {PropTypes, } from 'react';
 import { connect } from 'react-redux';
-import { Item } from '../components/item.js'
+import { Item } from '../components/Item.js'
 
 export const mapStateToProps = (state) => {
   return {
