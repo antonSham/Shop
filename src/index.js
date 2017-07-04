@@ -2,19 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Head extends React.Component {
-  render () {
-    const Title = 'The best toe shop';
-    return (
-      <div className="head">
-        <a href="#">
-          <img src={require("../data/img/logo.jpg")} alt="logo" />
-        </a>
-        <h1 className="title">{Title}</h1>
-      </div>
-    );
-  }
-}
+const Head = () => (
+  <div className="head">
+    <a href="#">
+      <img src={require("../data/img/logo.jpg")} alt="logo" />
+    </a>
+    <h1 className="title">The best toe shop</h1>
+  </div>
+);
 
 class Body extends React.Component {
   constructor() {
@@ -48,27 +43,19 @@ class Body extends React.Component {
   }
 }
 
-class Footer extends React.Component {
-  render () {
-    return (
-      <div className="footer">
-      &copy; 2017
-      </div>
-    );
-  }
-}
+const Footer = () => (
+  <div className="footer">
+  &copy; 2017
+  </div>
+);
 
-class Shop extends React.Component {
-  render () {
-    return (
-      <div className="shop">
-        <Head />
-        <Body />
-        <Footer />
-      </div>
-    );
-  }
-}
+const Shop = () => (
+  <div className="shop">
+    <Head />
+    <Body />
+    <Footer />
+  </div>
+);
 
 ReactDOM.render(
   <Shop />,
