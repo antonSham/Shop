@@ -1,9 +1,22 @@
+.head {
+  display: table;
+  width: 100%;
+}
 .head img {
   width : 100px;
   float : left;
   margin : 10px;
   margin-right: 50px;
 }
+
+.head h1 {
+  float: left;
+}
+
+.head > h1 + a > img {
+  float : right;
+}
+
 .title {
   line-height: 120px;
   font-size: 30pt;

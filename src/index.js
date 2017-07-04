@@ -5,13 +5,22 @@ import { createStore} from 'redux';
 import { Provider } from 'react-redux';
 import { todoApp } from './reducers/index.js'
 import { Shop } from './components/Shop.js'
-/*import { connect } from 'react-redux';*/
+import { Cart } from './components/Cart.js'
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom'
 
 export let store = createStore(todoApp);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Shop />
+    <Router>
+      <div>
+        <Route exact path="/" component={Shop} />
+        <Route path="/cart" component={Cart} />
+      </div>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
