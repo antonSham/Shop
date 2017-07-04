@@ -9,9 +9,13 @@ export const itemsApp = (state = initialState, action) => {
   ]
   switch (action.type) {
     case GET_ITEMS:
-      return Object.assign( {}, state, {
-        items : catalog
-      });
+      if (state.Loaded)
+        return state;
+      else
+        return Object.assign( {}, state, {
+          items : catalog,
+          Loaded : true
+        });
     default:
       return state;
   }

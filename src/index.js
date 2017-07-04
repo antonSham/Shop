@@ -10,8 +10,6 @@ import { todoApp } from './reducers/index.js'
 
 let store = createStore(todoApp);
 
-store.dispatch(getItems());
-
 const Head = () => (
   <div className="head">
     <a href="#">
@@ -21,11 +19,14 @@ const Head = () => (
   </div>
 );
 
-const Body = () => (
-  <div className="body">
-    <VisibleItemList />
-  </div>
-);
+const Body = () => {
+  store.dispatch(getItems());
+  return (
+    <div className="body">
+      <VisibleItemList />
+    </div>
+  )
+}
 
 const Footer = () => (
   <div className="footer">
