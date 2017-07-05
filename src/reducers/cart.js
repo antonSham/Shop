@@ -9,12 +9,6 @@ const itemInCart = (itemId, cart) => (
 export const cartApp = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      if (!itemInCart(action.id, state.cart_items)) {
-        alert("Add " + String(action.id));
-      }
-      else {
-        alert("Can't add " + String(action.id))
-      }
       return Object.assign( {}, state, {
         cart_items : [
           ...state.cart_items,
