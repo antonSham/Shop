@@ -1,4 +1,4 @@
-import { GET_ITEMS, ADD_TO_CART } from '../actions/index.js'
+import { GET_ITEMS } from '../actions/index.js'
 
 export const itemsApp = (state, action) => {
   const catalog = [

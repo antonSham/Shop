@@ -2,7 +2,7 @@ import React, {PropTypes, } from 'react';
 import { addToCart } from '../actions/index.js';
 import { store } from '../index.js';
 
-export const Item = ({id, imgsrc, name, price}) => (
+export const Item = ({id, imgsrc, name, price, onCartAddClick}) => (
   <div className="item">
     <img src={imgsrc} alt={name}/>
     <div className="name">
@@ -14,7 +14,7 @@ export const Item = ({id, imgsrc, name, price}) => (
     <form
       onSubmit={ event => {
           event.preventDefault();
-          store.dispatch(addToCart( id ));
+          onCartAddClick(id);
       }}
     >
       <button type="submit">Add to cart</button>
@@ -26,5 +26,6 @@ Item.PropTypes = {
   id : PropTypes.number.isRequired,
   imgsrc : PropTypes.object.isRequired,
   name : PropTypes.string.isRequired,
-  price : PropTypes.number.isRequired
+  price : PropTypes.number.isRequired,
+  onCartAddClick : PropTypes.func.isRequired
 }
