@@ -1,11 +1,10 @@
-import { GET_ITEMS } from '../actions/index.js'
-import { initialState } from '../reducers/index.js'
+import { GET_ITEMS, ADD_TO_CART } from '../actions/index.js'
 
-export const itemsApp = (state = initialState, action) => {
+export const itemsApp = (state, action) => {
   const catalog = [
-    {imgsrc: require("../../data/img/1.jpg"), name: "bick", price: 250},
-    {imgsrc: require("../../data/img/2.jpg"), name: "rocket", price: 200},
-    {imgsrc: require("../../data/img/3.jpg"), name: "pokemon", price: 300}
+    {id: 1, imgsrc: require("../../data/img/1.jpg"), name: "bick", price: 250},
+    {id: 2, imgsrc: require("../../data/img/2.jpg"), name: "rocket", price: 200},
+    {id: 3, imgsrc: require("../../data/img/3.jpg"), name: "pokemon", price: 300}
   ]
   switch (action.type) {
     case GET_ITEMS:
