@@ -10,6 +10,7 @@ export const Item = ({imgsrc, name, price}) => (
     <div className="price">
       {price}
     </div>
+    <button>Add to cart</button>
   </div>
 )
 
