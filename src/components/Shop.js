@@ -6,7 +6,7 @@ import { Goods } from './Goods.js'
 export const Shop = () => (
   <div className="shop">
     <Head />
-    <Goods catalogue="Main" />
+    <Goods />
     <Footer />
   </div>
 );

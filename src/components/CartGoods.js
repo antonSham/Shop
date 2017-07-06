@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Item } from '../components/Item.js'
 import { getItems, addToCart } from '../actions/index.js'
+import { CartItem } from './CartItem.js'
 
 const mapStateToProps = (state) => ({
-  items: state.items,
+  items: state.cart_items
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,7 +19,7 @@ class ItemList extends React.Component{
   render = () => (
     <div className="items">
       {this.props.items.map(item =>
-        <Item
+        <CartItem
           id={item.id}
         />
       )}
@@ -26,7 +27,7 @@ class ItemList extends React.Component{
   )
 }
 
-export const Goods = connect(
+export const CartGoods = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ItemList);

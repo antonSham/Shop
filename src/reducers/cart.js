@@ -1,10 +1,4 @@
-import { ADD_TO_CART } from '../actions/index.js'
-
-const itemInCart = (itemId, cart) => (
-  cart.reduce( (last, current) => (
-    last || current.id === itemId
-  ), false)
-);
+import { ADD_TO_CART, POP_FROM_CART } from '../actions/index.js'
 
 export const cartApp = (state, action) => {
   switch (action.type) {
@@ -14,12 +8,21 @@ export const cartApp = (state, action) => {
           ...state.cart_items,
           ...state.items.filter((item) => (
             item.id === action.id &&
-            !itemInCart(action.id, state.cart_items)
+            state.cart_items.reduce( (last, current) => (
+              last && current.id !== action.id
+            ), true)
           ))
-          .map((item) => (Object.assign(item, {
-            catalogue: "Cart"
-          })))
+          .map( (item) => ({
+            id : item.id,
+            quantity: 1
+          }))
         ]
+      });
+    case POP_FROM_CART:
+      return Object.assign( {}, state, {
+        cart_items : state.cart_items.filter((item) => (
+          item.id !== action.id
+        ))
       });
     default:
       return state;
