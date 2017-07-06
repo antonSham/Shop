@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { Title } from './Title.js'
+import { StyledHead } from './StyledHead.js'
 
 export const Head = () => (
-  <div className="head">
+  <StyledHead>
     <Link to="/">
       <img src={require("../../data/img/logo.jpg")} alt="logo" />
     </Link>
-    <h1 className="title">The best toe shop</h1>
+    <Title>The best toe shop</Title>
     <Link to="/Cart">
       <img src={require("../../data/img/cart.jpg")} alt="cart" />
     </Link>
-  </div>
+  </StyledHead>
 );

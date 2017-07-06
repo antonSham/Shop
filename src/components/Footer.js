@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyledFooter } from './StyledFooter.js'
 
 export const Footer = () => (
-  <div className="footer">
-  &copy; 2017
-  </div>
+  <StyledFooter>
+    &copy; 2017
+  </StyledFooter>
 );
