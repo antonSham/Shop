@@ -28,11 +28,12 @@ export class ItemList extends React.Component{
       <div className="items">
         {items.map(item =>
           <Item
-            id={item.id}
             imgsrc={item.imgsrc}
             name={item.name}
             price={item.price}
-            onCartAddClick={this.props.onCartAddClick}
+            onButtonClick={this.props.catalogue === "Main" ?
+                            () => this.props.onCartAddClick(item.id) :
+                            null}
             catalogue={this.props.catalogue}
           />
         )}
