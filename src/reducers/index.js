@@ -1,15 +1,20 @@
 import { itemsApp } from '../reducers/items.js'
 import { cartApp } from '../reducers/cart.js'
+import { quantityApp } from '../reducers/quantity.js'
 
 const initialState = {
     items: [],
     loaded: false,
-    cart_items: []
+    cart_items: [{
+      id : 1,
+      quantity: 4
+    }]
 }
 
 export const todoApp = (state = initialState, action) => {
   let newState = Object.assign({}, state);
   newState = itemsApp(newState, action);
   newState = cartApp(newState, action);
+  newState = quantityApp(newState, action);
   return newState;
 }

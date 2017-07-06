@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Item } from '../components/Item.js'
-import { getItems, addToCart } from '../actions/index.js'
+import { getItems } from '../actions/index.js'
 import { CartItem } from './CartItem.js'
 
 const mapStateToProps = (state) => ({

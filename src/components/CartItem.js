@@ -7,25 +7,33 @@ import { ItemDescription } from './ItemDescription.js'
 import { ItemName } from './ItemName.js'
 import { ItemPrice } from './ItemPrice.js'
 import { ItemButton } from './ItemButton.js'
+import { QuantityCounter } from './QuantityCounter.js'
 
 const mapStateToProps = (state, ownProps) => ({
-  item: state.items.filter((item) => item.id === ownProps.id)[0],
-  quantity: state.cart_items.filter((item) => item.id === ownProps.id)[0].quantity
+  exist: state.items.filter((item) => item.id === ownProps.id).length > 0,
+  item: state.items.filter((item) => item.id === ownProps.id)[0]
 })
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onButtonClick:() =>  dispatch(popFromCart(ownProps.id))
 })
-const PItem = ({item, quantity, onButtonClick}) => {
-  return (
-    <Product>
-      <ItemImage src={item.imgsrc} alt={item.name} />
-      <ItemDescription>
-        <ItemName> {item.name} </ItemName>
-        <ItemPrice> {item.price} $ </ItemPrice>
-        <ItemButton onClick={onButtonClick} > Pop </ItemButton>
-      </ItemDescription>
-    </Product>
-  );
+const PItem = ({id, item, exist, onButtonClick}) => {
+  if (exist)
+    return (
+      <Product>
+        <ItemImage src={item.imgsrc} alt={item.name} />
+        <ItemDescription>
+          <ItemName> {item.name} </ItemName>
+          <ItemPrice> {item.price} $ </ItemPrice>
+          <QuantityCounter id={id}/>
+          <ItemButton onClick={onButtonClick} > Pop </ItemButton>
+        </ItemDescription>
+      </Product>
+    );
+  else
+    return (
+      <div>
+      </div>
+    );
 }
 
 export const CartItem = connect(

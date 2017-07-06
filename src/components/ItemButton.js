@@ -8,6 +8,7 @@ export const ItemButton = styled.div`
   padding: 5px;
   border-radius: 10px;
   background-color: gray;
+  -webkit-user-select: none;
 
   :hover {
     background-color: darkgray;
