@@ -16,6 +16,9 @@ export const cartApp = (state, action) => {
             item.id === action.id &&
             !itemInCart(action.id, state.cart_items)
           ))
+          .map((item) => (Object.assign(item, {
+            catalogue: "Cart"
+          })))
         ]
       });
     default:

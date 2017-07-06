@@ -2,9 +2,9 @@ import { GET_ITEMS } from '../actions/index.js'
 
 export const itemsApp = (state, action) => {
   const catalog = [
-    {id: 1, imgsrc: require("../../data/img/1.jpg"), name: "Bick", price: 250},
-    {id: 2, imgsrc: require("../../data/img/2.jpg"), name: "Rocket", price: 200},
-    {id: 3, imgsrc: require("../../data/img/3.jpg"), name: "Pokemon", price: 300}
+    {id: 1, imgsrc: require("../../data/img/1.jpg"), name: "Bick", price: 250, catalogue: "Main"},
+    {id: 2, imgsrc: require("../../data/img/2.jpg"), name: "Rocket", price: 200, catalogue: "Main"},
+    {id: 3, imgsrc: require("../../data/img/3.jpg"), name: "Pokemon", price: 300, catalogue: "Main"}
   ]
   switch (action.type) {
     case GET_ITEMS:

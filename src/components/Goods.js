@@ -9,11 +9,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onGoodsLoad: () => { dispatch(getItems()) },
-  onCartAddClick: (id) => { dispatch(addToCart(id)) }
+  onGoodsLoad: () => { dispatch(getItems()) }
 })
 
-export class ItemList extends React.Component{
+class ItemList extends React.Component{
   componentDidMount() {
     this.props.onGoodsLoad();
   }
@@ -28,13 +27,7 @@ export class ItemList extends React.Component{
       <div className="items">
         {items.map(item =>
           <Item
-            imgsrc={item.imgsrc}
-            name={item.name}
-            price={item.price}
-            onButtonClick={this.props.catalogue === "Main" ?
-                            () => this.props.onCartAddClick(item.id) :
-                            null}
-            catalogue={this.props.catalogue}
+            id={item.id}
           />
         )}
       </div>
