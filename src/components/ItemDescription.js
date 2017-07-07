@@ -4,7 +4,7 @@ export const ItemDescription = styled.div`
   width : 100px;
   height : 100px;
   float: right;
-  padding 10px;
+  padding: 10px;
   position: relative;
   border-left: solid 1px dimgray;
   background-color: lightgrey;
