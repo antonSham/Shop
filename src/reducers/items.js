@@ -1,20 +1,18 @@
-import { GET_ITEMS } from '../actions/index.js'
+import { GET_ITEMS, GET_ITEMS_SUCCESS, GET_ITEMS_FAILURE } from '../actions/index.js'
 
 export const itemsApp = (state, action) => {
-  const catalog = [
-    {id: 1, imgsrc: require("../../data/img/1.jpg"), name: "Bick", price: 250, catalogue: "Main"},
-    {id: 2, imgsrc: require("../../data/img/2.jpg"), name: "Rocket", price: 200, catalogue: "Main"},
-    {id: 3, imgsrc: require("../../data/img/3.jpg"), name: "Pokemon", price: 300, catalogue: "Main"}
-  ]
   switch (action.type) {
     case GET_ITEMS:
-      if (state.loaded)
-        return state;
-      else
-        return Object.assign( {}, state, {
-          items : catalog,
-          loaded : true
-        });
+      return state;
+    case GET_ITEMS_SUCCESS:
+      return Object.assign( {}, state, {
+        items: action.data,
+        loaded: true
+      });
+    case GET_ITEMS_FAILURE:
+      return Object.assign( {}, state, {
+        error: action.error
+      });
     default:
       return state;
   }

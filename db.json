@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"id": 1, "imgsrc": "data/img/1.jpg", "name": "Bick",     "price": 250, "catalogue": "Main"},
+    {"id": 2, "imgsrc": "data/img/2.jpg", "name": "Rocket",   "price": 200, "catalogue": "Main"},
+    {"id": 3, "imgsrc": "data/img/3.jpg", "name": "Pokemon",  "price": 300, "catalogue": "Main"}
+  ]
+}

@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 const PItem = ({item, onButtonClick}) => {
   return (
     <Product>
-      <ItemImage src={item.imgsrc} alt={item.name} />
+      <ItemImage src={require("../../" + item.imgsrc)} alt={item.name} />
       <ItemDescription>
         <ItemName> {item.name} </ItemName>
         <ItemPrice> {item.price} $ </ItemPrice>

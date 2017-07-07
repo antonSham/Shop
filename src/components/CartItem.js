@@ -20,7 +20,7 @@ const PItem = ({id, item, exist, onButtonClick}) => {
   if (exist)
     return (
       <Product>
-        <ItemImage src={item.imgsrc} alt={item.name} />
+        <ItemImage src={require("../../" + item.imgsrc)} alt={item.name} />
         <ItemDescription>
           <ItemName> {item.name} </ItemName>
           <ItemPrice> {item.price} $ </ItemPrice>
@@ -30,10 +30,7 @@ const PItem = ({id, item, exist, onButtonClick}) => {
       </Product>
     );
   else
-    return (
-      <div>
-      </div>
-    );
+    return null;
 }
 
 export const CartItem = connect(

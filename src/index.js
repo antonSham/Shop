@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import { Provider } from 'react-redux';
 import { todoApp } from './reducers/index.js'
 import { Shop } from './components/Shop.js'
@@ -9,8 +9,13 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom'
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 
-export let store = createStore(todoApp);
+export let store = createStore(
+  todoApp,
+  applyMiddleware(thunk, logger)
+);
 
 ReactDOM.render(
   <Provider store={store}>

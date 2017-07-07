@@ -8,7 +8,8 @@ const initialState = {
     cart_items: [{
       id : 1,
       quantity: 4
-    }]
+    }],
+    error: ""
 }
 
 export const todoApp = (state = initialState, action) => {
