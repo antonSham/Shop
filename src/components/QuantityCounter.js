@@ -7,7 +7,7 @@ import { QuantityValue } from './QuantityValue.js'
 import { PlusQuantity } from './PlusQuantity.js'
 
 const mapStateToProps = (state, ownProps) => ({
-  quantity: state.cart_items.filter((item) => item.id === ownProps.id)[0].quantity
+  quantity: state.cart.filter((item) => item.id === ownProps.id)[0].quantity
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

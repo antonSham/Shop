@@ -6,8 +6,6 @@ import { Load } from './Load.js'
 
 const mapStateToProps = (state) => ({
   items: state.items,
-  loading: state.loading,
-  error: state.error
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -19,19 +17,19 @@ class ItemList extends React.Component{
     this.props.onGoodsLoad();
   }
   errorMsg = () => (
-    this.props.error === "" ? null :
+    this.props.items.error === "" ? null :
     ( <h1>Ooops!!! Something went wrong!!!</h1> )
   )
 
   load = () => (
-    this.props.loading && this.props.error === "" ? (<Load />) : null
+    this.props.items.loading && this.props.items.error === "" ? (<Load />) : null
   )
 
   render = () => (
     <div className="items">
       {this.errorMsg()}
       {this.load()}
-      {this.props.items.map(item =>
+      {this.props.items.data.map(item =>
         <Item
           id={item.id}
         />

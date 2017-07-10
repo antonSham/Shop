@@ -9,7 +9,7 @@ import { ItemPrice } from './ItemPrice.js'
 import { ItemButton } from './ItemButton.js'
 
 const mapStateToProps = (state, ownProps) => ({
-  item: state.items.filter((item) => item.id === ownProps.id)[0]
+  item: state.items.data.filter((item) => item.id === ownProps.id)[0]
 })
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onButtonClick: () => dispatch(addToCart(ownProps.id))

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {applyMiddleware, createStore} from 'redux';
 import { Provider } from 'react-redux';
-import { todoApp } from './reducers/index.js'
+import { App } from './reducers/index.js'
 import { Shop } from './components/Shop.js'
 import { Cart } from './components/Cart.js'
 import {
@@ -13,7 +13,7 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
 export let store = createStore(
-  todoApp,
+  App,
   applyMiddleware(thunk, logger)
 );
 

@@ -10,8 +10,8 @@ import { ItemButton } from './ItemButton.js'
 import { QuantityCounter } from './QuantityCounter.js'
 
 const mapStateToProps = (state, ownProps) => ({
-  exist: state.items.filter((item) => item.id === ownProps.id).length > 0,
-  item: state.items.filter((item) => item.id === ownProps.id)[0]
+  exist: state.items.data.filter((item) => item.id === ownProps.id).length > 0,
+  item: state.items.data.filter((item) => item.id === ownProps.id)[0]
 })
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onButtonClick:() =>  dispatch(popFromCart(ownProps.id))

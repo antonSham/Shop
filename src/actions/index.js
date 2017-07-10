@@ -13,29 +13,15 @@ const getItemsFailure = (err) => ({ type: GET_ITEMS_FAILURE, error : err })
 const syncGetItems = () =>  ({type: GET_ITEMS})
 
 export const getItems = () => dispatch => {
-  new Promise((resolve, reject) => {
-    try {
-      dispatch(syncGetItems());
-      resolve();
-    }
-    catch (ex) {
-      reject(ex);
-    }
-
-  })
+  dispatch(syncGetItems());
+  return fetch("http://localhost:3004/items")
+  .then((response) => response.json())
   .then(
-    () => (
-      fetch("http://localhost:3004/items")
-      .then((response) => response.json())
-      .then(
-        (responseJson) => dispatch(getItemsSuccess(responseJson))
-      )
-      .catch(
-        (err) => dispatch(getItemsFailure(err.message + err.stack))
-      )
-    ),
-    (ex) => dispatch(getItemsFailure("Something wrong with syncGetItems: " + ex))
+    (responseJson) => dispatch(getItemsSuccess(responseJson))
   )
+  .catch(
+    (err) => dispatch(getItemsFailure(err.message + err.stack))
+  );
 }
 
 export const addToCart = (id) => ({ type: ADD_TO_CART, id: id})

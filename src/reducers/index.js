@@ -1,22 +1,28 @@
-import { itemsApp } from '../reducers/items.js'
-import { cartApp } from '../reducers/cart.js'
-import { quantityApp } from '../reducers/quantity.js'
+import { combineReducers } from 'redux'
+import { items } from '../reducers/items.js'
+import { cart } from '../reducers/cart.js'
 
 const initialState = {
-    items: [],
-    loaded: false,
-    loading: false,
-    cart_items: [{
+    items: {
+      data: [],
+      loaded: false,
+      loading: false,
+      error: ""
+    },
+    cart: [{
       id : 1,
       quantity: 4
     }],
-    error: ""
 }
 
-export const todoApp = (state = initialState, action) => {
+// export const App = combineReducers({
+//   items,
+//   cart
+// })
+
+export const App = (state = initialState, action) => {
   let newState = Object.assign({}, state);
-  newState = itemsApp(newState, action);
-  newState = cartApp(newState, action);
-  newState = quantityApp(newState, action);
+  newState = items(newState, action);
+  newState = cart(newState, action);
   return newState;
 }

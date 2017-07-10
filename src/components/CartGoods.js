@@ -5,9 +5,9 @@ import { CartItem } from './CartItem.js'
 import { Load } from './Load.js'
 
 const mapStateToProps = (state) => ({
-  items: state.cart_items,
-  loading: state.loading,
-  error: state.error
+  items: state.cart,
+  loading: state.items.loading,
+  error: state.items.error
 })
 
 const mapDispatchToProps = (dispatch) => ({
