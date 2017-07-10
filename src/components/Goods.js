@@ -6,7 +6,7 @@ import { Load } from './Load.js'
 
 const mapStateToProps = (state) => ({
   items: state.items,
-  loaded: state.loaded,
+  loading: state.loading,
   error: state.error
 })
 
@@ -24,8 +24,7 @@ class ItemList extends React.Component{
   )
 
   load = () => (
-    this.props.loaded || this.props.error !== "" ? null :
-    (<Load />)
+    this.props.loading && this.props.error === "" ? (<Load />) : null
   )
 
   render = () => (

@@ -5,6 +5,7 @@ import { quantityApp } from '../reducers/quantity.js'
 const initialState = {
     items: [],
     loaded: false,
+    loading: false,
     cart_items: [{
       id : 1,
       quantity: 4

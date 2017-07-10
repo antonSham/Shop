@@ -6,6 +6,7 @@ describe('Get items', () => {
     expect(itemsApp({}, {
       type: GET_ITEMS,
     })).toEqual({
+      loading: true
     })
   })
 })
@@ -17,13 +18,15 @@ describe('Get items success', () => {
       data: [
         {id: 1},
         {id: 2}
-      ]
+      ],
+      loading: true
     })).toEqual({
       items: [
         {id: 1},
         {id: 2}
       ],
-      loaded: true
+      loaded: true,
+      loading: false
     })
   })
 })
@@ -32,9 +35,11 @@ describe('Get items failure', () => {
   it('Get items failure', () => {
     expect(itemsApp({}, {
       type: GET_ITEMS_FAILURE,
-      error: "Something went wrong"
+      error: "Something went wrong",
+      loading: true
     })).toEqual({
-      error: "Something went wrong"
+      error: "Something went wrong",
+      loading: false
     })
   })
 })
