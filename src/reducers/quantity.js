@@ -6,10 +6,9 @@ export const quantityApp = (state, action) => {
       return Object.assign( {}, state, {
         cart_items : state.cart_items.map( (item) => {
           if (item.id === action.id)
-            return {
-              ...item,
+            return Object.assign( {}, item, {
               quantity: item.quantity + 1
-            }
+            } )
           return item
         })
       });
@@ -17,10 +16,9 @@ export const quantityApp = (state, action) => {
     return Object.assign( {}, state, {
       cart_items : state.cart_items.map( (item) => {
         if (item.id === action.id)
-          return {
-            ...item,
+          return Object.assign( {}, item, {
             quantity: Math.max(1,item.quantity - 1)
-          }
+          } )
         return item
       })
     });
