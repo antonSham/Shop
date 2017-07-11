@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ItemDescription = styled.div`
-  width : 100px;
-  height : 100px;
+  width: 100px;
+  height: 100px;
   float: right;
   padding: 10px;
   position: relative;
