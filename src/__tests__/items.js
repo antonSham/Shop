@@ -6,46 +6,58 @@ describe('Get items', () => {
     expect(items(undefined, {
     })).toEqual({
       data: [],
-      loaded: false,
       loading: false,
       error: ""
     })
   })
 
   it('Get items', () => {
-    expect(items({}, {
+    expect(items({
+      data: [],
+      loading: false,
+      error: ""
+    }, {
       type: GET_ITEMS,
     })).toEqual({
-      loading: true
+      data: [],
+      loading: true,
+      error: ""
     })
   })
 
   it('Get items success', () => {
-    expect(items({}, {
+    expect(items({
+      data: [],
+      loading: true,
+      error: ""
+    }, {
       type: GET_ITEMS_SUCCESS,
       data: [
         {id: 1},
         {id: 2}
-      ],
-      loading: true
+      ]
     })).toEqual({
       data: [
         {id: 1},
         {id: 2}
       ],
-      loaded: true,
-      loading: false
+      loading: false,
+      error: ""
     })
   })
 
   it('Get items failure', () => {
-    expect(items({}, {
+    expect(items({
+      data: [],
+      loading: true,
+      error: ""
+    }, {
       type: GET_ITEMS_FAILURE,
-      error: "Something went wrong",
-      loading: true
+      error: "Something went wrong"
     })).toEqual({
-      error: "Something went wrong",
-      loading: false
+      data: [],
+      loading: false,
+      error: "Something went wrong"
     })
   })
 })

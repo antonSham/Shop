@@ -34,6 +34,7 @@ class ItemList extends React.Component{
       {this.load()}
       {this.props.items.map(item =>
         <CartItem
+          key={item.id}
           id={item.id}
         />
       )}

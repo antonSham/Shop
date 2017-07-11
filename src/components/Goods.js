@@ -31,6 +31,7 @@ class ItemList extends React.Component{
       {this.load()}
       {this.props.items.data.map(item =>
         <Item
+          key={item.id}
           id={item.id}
         />
       )}

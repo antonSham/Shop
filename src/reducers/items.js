@@ -1,30 +1,39 @@
 import { GET_ITEMS, GET_ITEMS_SUCCESS, GET_ITEMS_FAILURE } from '../actions/index.js'
 
-const initialState = {
-      data: [],
-      loaded: false,
-      loading: false,
-      error: ""
-}
-
-export const items = (state = initialState, action) => {
+const dataReducer = (state=[], action) => {
   switch (action.type) {
-    case GET_ITEMS:
-      return Object.assign( {}, state, {
-          loading: true
-      });
     case GET_ITEMS_SUCCESS:
-      return Object.assign( {}, state, {
-          data: action.data,
-          loaded: true,
-          loading: false
-      });
-    case GET_ITEMS_FAILURE:
-      return Object.assign( {}, state, {
-          error: action.error,
-          loading: false
-      });
+      return action.data;
     default:
       return state;
+  }
+}
+
+const loadingReducer = (state=false, action) => {
+  switch (action.type) {
+    case GET_ITEMS:
+      return true;
+    case GET_ITEMS_SUCCESS:
+    case GET_ITEMS_FAILURE:
+      return false;
+    default:
+      return state;
+  }
+}
+
+const errorReducer = (state='', action) => {
+  switch (action.type) {
+    case GET_ITEMS_FAILURE:
+      return action.error;
+    default:
+      return state;
+  }
+}
+
+export const items = (state, action) => {
+  return {
+    data: dataReducer(((state = {}) => (state.data))(state), action),
+    loading: loadingReducer(((state = {}) => (state.loading))(state), action),
+    error: errorReducer(((state = {}) => (state.error))(state), action)
   }
 }

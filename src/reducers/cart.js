@@ -3,60 +3,71 @@ import {
   INCREASE_QUANTITY, REDUCE_QUANTITY
 } from '../actions/index.js'
 
-const initialState = [{
-  id : 1,
-  quantity: 4
-}]
+const addToCart = (state = [], action) => (
+  state.filter(
+    (item) => (item.id === action.id)
+  ).length === 0
+  ?
+  [
+    ...state,
+    {
+      id: action.id,
+      quantity: 1
+    }
+  ]
+  :
+  [
+    ...state
+  ]
+);
 
-export const cart = (state = initialState, action) => {
+const popFromCart = (state = [], action) => (
+  state.filter(
+    (item) => (item.id !== action.id)
+  )
+);
+
+const increaseQuantity = (state = [], action) => (
+  state.map(
+    (item) => (
+      item.id === action.id
+      ?
+      {
+        ...item,
+        quantity: item.quantity + 1
+      }
+      :
+      item
+    )
+  )
+)
+
+const reduceQuantity = (state = [], action) => (
+  state.map(
+    (item) => (
+      item.id === action.id
+      ?
+      {
+        ...item,
+        quantity: Math.max(1, item.quantity - 1)
+      }
+      :
+      item
+    )
+  )
+)
+
+export const cart = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      return state.filter(
-        (item) => (item.id === action.id)
-      ).length === 0
-      ?
-      [
-        ...state,
-        {
-          id: action.id,
-          quantity: 1
-        }
-      ]
-      :
-      [
-        ...state
-      ];
+      return addToCart(state, action);
     case POP_FROM_CART:
-      return (
-        state.filter(
-          (item) => (item.id !== action.id)
-        )
-      );
+      return popFromCart(state, action);
     case INCREASE_QUANTITY:
-      return state.map(
-        (item) => (
-          item.id === action.id
-          ?
-          Object.assign({}, item, {
-            quantity: item.quantity + 1
-          })
-          :
-          item
-        )
-      );
+      return increaseQuantity(state, action);
     case REDUCE_QUANTITY:
-      return state.map(
-        (item) => (
-          item.id === action.id
-          ?
-          Object.assign({}, item, {
-            quantity: Math.max(1, item.quantity - 1)
-          })
-          :
-          item
-        )
-      );
+      return reduceQuantity(state, action);
     default:
-      return state;
+      return ((state = []) => (state))(state);
   }
 }
