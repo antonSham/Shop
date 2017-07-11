@@ -30,10 +30,10 @@ const errorReducer = (state='', action) => {
   }
 }
 
-export const items = (state, action) => {
+export const items = (state = {}, action) => {
   return {
-    data: dataReducer(((state = {}) => (state.data))(state), action),
-    loading: loadingReducer(((state = {}) => (state.loading))(state), action),
-    error: errorReducer(((state = {}) => (state.error))(state), action)
+    data: dataReducer(state.data, action),
+    loading: loadingReducer(state.loading, action),
+    error: errorReducer(state.error, action)
   }
 }

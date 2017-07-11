@@ -1,4 +1,5 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getItems } from '../actions/index.js'
 import { CartItem } from './CartItem.js'
@@ -10,13 +11,14 @@ const mapStateToProps = (state) => ({
   error: state.items.error
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  onGoodsLoad: () => { dispatch(getItems()) }
-})
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {getItems},
+  dispatch
+);
 
 class ItemList extends React.Component{
   componentDidMount = () => {
-    this.props.onGoodsLoad();
+    this.props.getItems()
   }
 
   errorMsg = () => (
