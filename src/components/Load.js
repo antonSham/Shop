@@ -1,4 +1,4 @@
 import React from "react";
-import { StyledLoad } from "./StyledLoad.js";
+import StyledLoad from "./StyledLoad.js";
 
-export const Load = () => <StyledLoad>Loading...</StyledLoad>;
+export default () => <StyledLoad>Loading...</StyledLoad>;

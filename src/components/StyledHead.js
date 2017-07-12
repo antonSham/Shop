@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHead = styled.div`
+export default styled.div`
   display: table;
   width: 100%;
 

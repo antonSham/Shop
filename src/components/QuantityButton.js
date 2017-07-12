@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const QuantityButton = styled.div`
+export default styled.div`
   display: inline-block;
   padding: 3px;
   background-color: ${props => (props.blocked ? "darkgray" : "gray")};

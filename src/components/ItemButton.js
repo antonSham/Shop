@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ItemButton = styled.div`
+export default styled.div`
   font-size: 12pt;
   position: absolute;
   right: 10px;

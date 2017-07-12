@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ItemDescription = styled.div`
+export default styled.div`
   width: 100px;
   height: 100px;
   float: right;

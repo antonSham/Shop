@@ -29,7 +29,7 @@ const itemReducer = (state = {}, action) => {
   }
 };
 
-export const cart = (state = [], action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case ADD_TO_CART:
       if (itemInCart(state, action.id)) {

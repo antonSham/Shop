@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Product = styled.div`
+export default styled.div`
   display: inline-block;
   margin: 20px;
   background-color: gainsboro;

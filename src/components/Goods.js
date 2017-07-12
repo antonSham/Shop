@@ -1,9 +1,9 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { Item } from "../components/Item.js";
+import Item from "../components/Item.js";
 import { getItems } from "../actions/index.js";
-import { Load } from "./Load.js";
+import Load from "./Load.js";
 
 const mapStateToProps = state => ({
   items: state.items
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getItems }, dispatch);
 
-class ItemList extends React.Component {
+class Goods extends React.Component {
   componentDidMount = () => {
     this.props.getItems();
   };
@@ -32,4 +32,4 @@ class ItemList extends React.Component {
     </div>;
 }
 
-export const Goods = connect(mapStateToProps, mapDispatchToProps)(ItemList);
+export default connect(mapStateToProps, mapDispatchToProps)(Goods);

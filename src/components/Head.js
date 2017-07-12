@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Title } from "./Title.js";
-import { StyledHead } from "./StyledHead.js";
+import Title from "./Title.js";
+import StyledHead from "./StyledHead.js";
 
-export const Head = () =>
+export default () =>
   <StyledHead>
     <Link to="/">
       <img src={require("../../data/img/logo.jpg")} alt="logo" />

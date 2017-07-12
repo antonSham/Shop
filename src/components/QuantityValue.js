@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const QuantityValue = styled.div`
+export default styled.div`
   display: inline-block;
   padding: 3px;
   background-color: gray;

@@ -1,9 +1,9 @@
 import React from "react";
-import { Head } from "./Head.js";
-import { Footer } from "./Footer.js";
-import { CartGoods } from "./CartGoods.js";
+import Head from "./Head.js";
+import Footer from "./Footer.js";
+import CartGoods from "./CartGoods.js";
 
-export const Cart = () =>
+export default () =>
   <div>
     <Head />
     <h1>Your Cart:</h1>

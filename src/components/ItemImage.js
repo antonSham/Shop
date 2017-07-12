@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ItemImage = styled.img`
+export default styled.img`
   width: 100px;
   height: 100px;
   margin: 10px;

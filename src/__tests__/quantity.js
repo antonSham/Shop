@@ -1,4 +1,4 @@
-import { cart } from "../reducers/cart.js";
+import cart from "../reducers/cart.js";
 import { INCREASE_QUANTITY, REDUCE_QUANTITY } from "../actions/index.js";
 
 describe("Increase quantity", () => {

@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../actions/index.js";
-import { Product } from "./Product.js";
-import { ItemImage } from "./ItemImage.js";
-import { ItemDescription } from "./ItemDescription.js";
-import { ItemName } from "./ItemName.js";
-import { ItemPrice } from "./ItemPrice.js";
-import { ItemButton } from "./ItemButton.js";
+import Product from "./Product.js";
+import ItemImage from "./ItemImage.js";
+import ItemDescription from "./ItemDescription.js";
+import ItemName from "./ItemName.js";
+import ItemPrice from "./ItemPrice.js";
+import ItemButton from "./ItemButton.js";
 
 const mapStateToProps = (state, ownProps) => ({
   item: state.items.data.filter(item => item.id === ownProps.id)[0]
@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onButtonClick: () => dispatch(addToCart(ownProps.id))
 });
-const PItem = ({ item, onButtonClick }) => {
+const Item = ({ item, onButtonClick }) => {
   return (
     <Product>
       <ItemImage src={require("../../" + item.imgsrc)} alt={item.name} />
@@ -31,4 +31,4 @@ const PItem = ({ item, onButtonClick }) => {
   );
 };
 
-export const Item = connect(mapStateToProps, mapDispatchToProps)(PItem);
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

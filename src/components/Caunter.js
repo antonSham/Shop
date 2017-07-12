@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Caunter = styled.div`
+export default styled.div`
   position: absolute;
   left: 10px;
   bottom: 10px;

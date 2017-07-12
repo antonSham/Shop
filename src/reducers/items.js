@@ -34,7 +34,7 @@ const errorReducer = (state = "", action) => {
   }
 };
 
-export const items = (state = {}, action) => {
+export default (state = {}, action) => {
   return {
     data: dataReducer(state.data, action),
     loading: loadingReducer(state.loading, action),

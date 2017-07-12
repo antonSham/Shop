@@ -1,4 +1,4 @@
-import { items } from "../reducers/items.js";
+import items from "../reducers/items.js";
 import {
   GET_ITEMS,
   GET_ITEMS_SUCCESS,
