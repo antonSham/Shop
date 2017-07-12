@@ -1,11 +1,8 @@
 import React from "react";
-import Head from "./Head.js";
-import Footer from "./Footer.js";
 import Goods from "./Goods.js";
+import Layout from "./Layout.js";
 
 export default () =>
-  <div>
-    <Head />
+  <Layout>
     <Goods />
-    <Footer />
-  </div>;
+  </Layout>;
