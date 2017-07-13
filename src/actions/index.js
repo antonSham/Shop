@@ -5,6 +5,8 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const POP_FROM_CART = "POP_FROM_CART";
 export const INCREASE_QUANTITY = "QUANTITY_INCREASE";
 export const REDUCE_QUANTITY = "QUANTITY_REDUCE";
+export const THROW_ERROR = "THROW_ERROR";
+export const POP_ERROR = "POP_ERROR";
 
 export const getItems = () => ({ type: GET_ITEMS });
 
@@ -19,3 +21,7 @@ export const popFromCart = id => ({ type: POP_FROM_CART, id });
 export const increaseQuantity = id => ({ type: INCREASE_QUANTITY, id });
 
 export const reduceQuantity = id => ({ type: REDUCE_QUANTITY, id });
+
+export const throwError = errorMessage => ({ type: THROW_ERROR, errorMessage });
+
+export const popError = id => ({ type: POP_ERROR, id });

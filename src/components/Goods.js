@@ -16,17 +16,12 @@ class Goods extends React.Component {
   componentDidMount = () => {
     this.props.getItems();
   };
-  errorMsg = () =>
-    this.props.items.error === ""
-      ? null
-      : <h1>Ooops!!! Something went wrong!!!</h1>;
 
   load = () =>
     this.props.items.loading && this.props.items.error === "" ? <Load /> : null;
 
   render = () =>
     <div>
-      {this.errorMsg()}
       {this.load()}
       {this.props.items.data.map(item => <Item key={item.id} id={item.id} />)}
     </div>;
