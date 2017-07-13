@@ -6,7 +6,8 @@ import { getItems } from "../actions/index.js";
 import Load from "./Load.js";
 
 const mapStateToProps = state => ({
-  items: state.items
+  items: state.items,
+  loaded: state.items.data.length !== 0
 });
 
 const mapDispatchToProps = dispatch =>
@@ -14,11 +15,13 @@ const mapDispatchToProps = dispatch =>
 
 class Goods extends React.Component {
   componentDidMount = () => {
-    this.props.getItems();
+    if (!this.props.loaded) {
+      this.props.getItems();
+    }
   };
 
   load = () =>
-    this.props.items.loading && this.props.items.error === "" ? <Load /> : null;
+    this.props.items.loading === "" ? <Load /> : null;
 
   render = () =>
     <div>

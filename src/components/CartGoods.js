@@ -7,7 +7,8 @@ import Load from "./Load.js";
 
 const mapStateToProps = state => ({
   items: state.cart,
-  loading: state.items.loading
+  loading: state.items.loading,
+  loaded: state.items.data.length !== 0
 });
 
 const mapDispatchToProps = dispatch =>
@@ -15,11 +16,13 @@ const mapDispatchToProps = dispatch =>
 
 class CartGoods extends React.Component {
   componentDidMount = () => {
-    this.props.getItems();
+    if (!this.props.loaded) {
+      this.props.getItems();
+    }
   };
 
   load = () =>
-    this.props.loading && this.props.error === "" ? <Load /> : null;
+    this.props.loading ? <Load /> : null;
 
   render = () =>
     <div>

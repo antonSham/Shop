@@ -7,7 +7,7 @@ export default (state = [], action) => {
         errorMessage: action.errorMessage
       });
     case POP_ERROR:
-      return state.slice(0, action.id).concat(state.slice(action.id + 1));
+      return state.filter(el => state.indexOf(el) !== action.id);
     default:
       return state;
   }
