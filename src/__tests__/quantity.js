@@ -58,12 +58,12 @@ describe("Reduce quantity", () => {
     ).toEqual([{ id: 1, quantity: 2 }, { id: 2, quantity: 7 }]);
   });
 
-  it("Reduce 1 quantity", () => {
+  it("Reduce 0 quantity", () => {
     expect(
-      cart([{ id: 1, quantity: 1 }, { id: 2, quantity: 7 }], {
+      cart([{ id: 1, quantity: 0 }, { id: 2, quantity: 7 }], {
         type: REDUCE_QUANTITY,
         id: 1
       })
-    ).toEqual([{ id: 1, quantity: 1 }, { id: 2, quantity: 7 }]);
+    ).toEqual([{ id: 1, quantity: 0 }, { id: 2, quantity: 7 }]);
   });
 });

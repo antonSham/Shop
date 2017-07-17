@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export default styled.div`
+  opacity: ${props => (props.shaded ? "0" : "1")};
   position: absolute;
-  left: 10px;
-  bottom: 10px;
-  -webkit-user-select: none;
+  width: 100%;
+  height: 100%;
 `;

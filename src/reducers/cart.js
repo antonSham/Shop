@@ -22,7 +22,7 @@ const itemReducer = (state = {}, action) => {
     case REDUCE_QUANTITY:
       return {
         ...state,
-        quantity: Math.max(1, state.quantity - 1)
+        quantity: Math.max(0, state.quantity - 1)
       };
     default:
       return state;
