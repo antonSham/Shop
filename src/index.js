@@ -1,5 +1,3 @@
-import "../data/css/uikit.min.css";
-import "../data/js/uikit.min.js";
 import React from "react";
 import ReactDOM from "react-dom";
 import { applyMiddleware, createStore } from "redux";

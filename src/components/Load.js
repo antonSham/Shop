@@ -1,4 +1,3 @@
 import React from "react";
-import StyledLoad from "./StyledLoad.js";
 
-export default () => <StyledLoad>Loading...</StyledLoad>;
+export default () => <div data-uk-spinner={''}></div>;

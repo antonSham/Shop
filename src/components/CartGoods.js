@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch =>
 
 class CartGoods extends React.Component {
   componentDidMount = () => {
-    if (!this.props.loaded) {
+    if (!this.props.loaded && !this.props.loading) {
       this.props.getItems();
     }
   };
@@ -25,9 +25,11 @@ class CartGoods extends React.Component {
     this.props.loading ? <Load /> : null;
 
   render = () =>
-    <div className="uk-grid uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl">
+    <div>
       {this.load()}
-      {this.props.items.map(item => <CartItem key={item.id} id={item.id} />)}
+      <div className="uk-grid uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl">
+        {this.props.items.map(item => <CartItem key={item.id} id={item.id} />)}
+      </div>
     </div>;
 }
 
