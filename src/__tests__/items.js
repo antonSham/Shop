@@ -10,7 +10,12 @@ describe("Get items", () => {
     expect(items(undefined, {})).toEqual({
       data: [],
       loading: false,
-      error: ""
+      error: "",
+      search: {
+        request: "",
+        preview: "",
+        answer: []
+      }
     });
   });
 
@@ -20,7 +25,12 @@ describe("Get items", () => {
         {
           data: [],
           loading: false,
-          error: ""
+          error: "",
+          search: {
+            request: "",
+            preview: "",
+            answer: []
+          }
         },
         {
           type: GET_ITEMS
@@ -29,7 +39,12 @@ describe("Get items", () => {
     ).toEqual({
       data: [],
       loading: true,
-      error: ""
+      error: "",
+      search: {
+        request: "",
+        preview: "",
+        answer: []
+      }
     });
   });
 
@@ -39,7 +54,12 @@ describe("Get items", () => {
         {
           data: [],
           loading: true,
-          error: ""
+          error: "",
+          search: {
+            request: "",
+            preview: "",
+            answer: []
+          }
         },
         {
           type: GET_ITEMS_SUCCESS,
@@ -49,7 +69,12 @@ describe("Get items", () => {
     ).toEqual({
       data: [{ id: 1 }, { id: 2 }],
       loading: false,
-      error: ""
+      error: "",
+      search: {
+        request: "",
+        preview: "",
+        answer: []
+      }
     });
   });
 
@@ -59,7 +84,12 @@ describe("Get items", () => {
         {
           data: [],
           loading: true,
-          error: ""
+          error: "",
+          search: {
+            request: "",
+            preview: "",
+            answer: []
+          }
         },
         {
           type: GET_ITEMS_FAILURE,
@@ -69,7 +99,12 @@ describe("Get items", () => {
     ).toEqual({
       data: [],
       loading: false,
-      error: "Something went wrong"
+      error: "Something went wrong",
+      search: {
+        request: "",
+        preview: "",
+        answer: []
+      }
     });
   });
 });
