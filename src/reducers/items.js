@@ -2,7 +2,6 @@ import {
   GET_ITEMS,
   GET_ITEMS_SUCCESS,
   GET_ITEMS_FAILURE,
-  GET_SEARCH_PREVIEW,
   SEARCH
 } from "../actions/index.js";
 
@@ -48,20 +47,8 @@ const search = (data, request) => (
     .map(el => el.id)
 );
 
-
-const getItemNameById = (id, data) => {
-  if (id === 'undefined') {
-    return "";
-  }
-  const filtred = data.filter( el => el.id === id);
-  if (filtred.length === 0) {
-    return "";
-  }
-  return filtred[0].name;
-}
-
 const searchReducer = (
-  state = { request: "", preview: "", answer: [] },
+  state = { request: "", answer: [] },
   action,
   data
 ) => {
@@ -69,16 +56,8 @@ const searchReducer = (
     case SEARCH:
       return {
         ...state,
-        answer: search(data, action.request),
-        request: action.request
-      }
-    case GET_SEARCH_PREVIEW:
-      return {
-        ...state,
-        preview: getItemNameById(
-                    search(data, action.request)[0],
-                    data
-                  )
+        request: action.request,
+        answer: search(data, action.request)
       }
     default:
       return state;
@@ -90,6 +69,6 @@ export default (state = {}, action) => {
     data: dataReducer(state.data, action),
     loading: loadingReducer(state.loading, action),
     error: errorReducer(state.error, action),
-    search: searchReducer(state.searchPreview, action, state.data)
+    search: searchReducer(state.search, action, state.data)
   };
 };

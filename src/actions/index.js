@@ -7,7 +7,6 @@ export const INCREASE_QUANTITY = "QUANTITY_INCREASE";
 export const REDUCE_QUANTITY = "QUANTITY_REDUCE";
 export const THROW_ERROR = "THROW_ERROR";
 export const POP_ERROR = "POP_ERROR";
-export const GET_SEARCH_PREVIEW = "GET_SEARCH_PREVIEW";
 export const SEARCH = "SEARCH";
 
 export const getItems = () => ({ type: GET_ITEMS });
@@ -27,10 +26,5 @@ export const reduceQuantity = id => ({ type: REDUCE_QUANTITY, id });
 export const throwError = errorMessage => ({ type: THROW_ERROR, errorMessage });
 
 export const popError = id => ({ type: POP_ERROR, id });
-
-export const getSearchPreview = request => ({
-  type: GET_SEARCH_PREVIEW,
-  request
-});
 
 export const search = request => ({ type: SEARCH, request });

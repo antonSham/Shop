@@ -13,7 +13,6 @@ describe("Get items", () => {
       error: "",
       search: {
         request: "",
-        preview: "",
         answer: []
       }
     });
@@ -28,7 +27,6 @@ describe("Get items", () => {
           error: "",
           search: {
             request: "",
-            preview: "",
             answer: []
           }
         },
@@ -42,7 +40,6 @@ describe("Get items", () => {
       error: "",
       search: {
         request: "",
-        preview: "",
         answer: []
       }
     });
@@ -57,7 +54,6 @@ describe("Get items", () => {
           error: "",
           search: {
             request: "",
-            preview: "",
             answer: []
           }
         },
@@ -72,7 +68,6 @@ describe("Get items", () => {
       error: "",
       search: {
         request: "",
-        preview: "",
         answer: []
       }
     });
@@ -87,7 +82,6 @@ describe("Get items", () => {
           error: "",
           search: {
             request: "",
-            preview: "",
             answer: []
           }
         },
@@ -102,7 +96,6 @@ describe("Get items", () => {
       error: "Something went wrong",
       search: {
         request: "",
-        preview: "",
         answer: []
       }
     });
