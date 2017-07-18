@@ -1,4 +1,8 @@
 import React from "react";
-import StyledFooter from "./StyledFooter.js";
 
-export default () => <StyledFooter>&copy; 2017</StyledFooter>;
+export default () =>
+  <div className="uk-section uk-section-muted uk-section-xsmall">
+    <div className="uk-align-right uk-margin-right">
+      &copy; 2017
+    </div>
+  </div>;
