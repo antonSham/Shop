@@ -22,7 +22,7 @@ const CartItem = ({ exist, item, cartItem, onPop, onPlus, onMinus, quantity}) =>
       return null;
     return (
       <div>
-        <CartProduct className="uk-card uk-card-default uk-grid uk-grid-collapse uk-child-width-1-2@s uk-margin-medium-bottom uk-margin-small-right uk-margin-small-left">
+        <CartProduct className="uk-card uk-card-default uk-grid uk-grid-collapse uk-child-width-1-2@s uk-margin">
           <CartImage shaded={quantity===0} className="uk-card-media-left \
                                                 uk-cover-container">
             <img src={require("../../" + item.imgsrc)} alt={item.name}

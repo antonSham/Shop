@@ -25,9 +25,9 @@ class CartGoods extends React.Component {
     this.props.loading ? <Load /> : null;
 
   render = () =>
-    <div>
+    <div className="uk-margin-left uk-margin-right uk-margin-bottom">
       {this.load()}
-      <div className="uk-grid uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl">
+      <div className="uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid={""}>
         {this.props.items.map(item => <CartItem key={item.id} id={item.id} />)}
       </div>
     </div>;

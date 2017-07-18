@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 const Item = ({ item, onButtonClick }) => {
   return (
     <div>
-      <div className="uk-card uk-card-default uk-grid uk-grid-collapse uk-child-width-1-2@s uk-margin-medium-bottom uk-margin-small-right uk-margin-small-left">
+      <div className="uk-card uk-card-default uk-grid uk-grid-collapse uk-child-width-1-2@s uk-margin">
         <div className="uk-card-media-left uk-cover-container">
           <img src={require("../../" + item.imgsrc)} alt={item.name}
           className="uk-cover"/>
