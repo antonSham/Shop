@@ -27,7 +27,7 @@ class Goods extends React.Component {
   render = () =>
     <div className="uk-margin-left uk-margin-right uk-margin-bottom">
       {this.load()}
-      <div className="uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid={""}>
+      <div className="uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid>
         {this.props.items.data.map(item => <Item key={item.id} id={item.id} />)}
       </div>
     </div>

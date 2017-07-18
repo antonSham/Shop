@@ -13,8 +13,8 @@ const mapDispatchToProps = (dispatch, ownProps) =>
 
 const Error = ({ message, id, popError }) => {
   return (
-    <div className="uk-alert-danger uk-margin-left uk-margin-top uk-margin-right uk-border-rounded" data-uk-alert={""}>
-      <ErrorCloseButton onClick={()=>popError(id)} data-uk-close={""} />
+    <div className="uk-alert-danger uk-margin-left uk-margin-top uk-margin-right uk-border-rounded" data-uk-alert>
+      <ErrorCloseButton onClick={()=>popError(id)} data-uk-close />
       <p>Error: {message}</p>
     </div>
   );
