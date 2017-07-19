@@ -8,13 +8,14 @@ import CartBadge from "./CartBadge.js";
 import { search } from "../actions/index.js";
 
 const mapStateToProps = (state, ownProps) => ({
-  cartItemsCount: state.cart.length
+  cartItemsCount: state.cart.length,
+  searchRequest: state.items.search.request
 });
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ search }, dispatch);
 
-const Head = ( {cartItemsCount, search} ) =>
+const Head = ( {cartItemsCount, search, searchRequest} ) =>
   <div className="uk-navbar-container" data-uk-navbar>
     <div className="uk-navbar-left">
       <Link to="/" className="uk-navbar-item uk-logo">
@@ -34,7 +35,9 @@ const Head = ( {cartItemsCount, search} ) =>
                   event.preventDefault();
                   search(event.target.value);
                 }}
+                value={searchRequest}
                 placeholder="Search..." />
+        <Link to="/"><button type="submit" hidden/></Link>
       </form>
       <Link to="/Cart" className="uk-navbar-item uk-logo">
         <CartLogo>
