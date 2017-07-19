@@ -1,9 +1,9 @@
-import items from "../reducers/items.js";
+import items from "../items.js";
 import {
   GET_ITEMS,
   GET_ITEMS_SUCCESS,
   GET_ITEMS_FAILURE
-} from "../actions/index.js";
+} from "../../actions/index.js";
 
 describe("Get items", () => {
   it("Get items default", () => {
@@ -11,10 +11,7 @@ describe("Get items", () => {
       data: [],
       loading: false,
       error: "",
-      search: {
-        request: "",
-        answer: []
-      }
+      searchRequest: ""
     });
   });
 
@@ -25,10 +22,7 @@ describe("Get items", () => {
           data: [],
           loading: false,
           error: "",
-          search: {
-            request: "",
-            answer: []
-          }
+          searchRequest: ""
         },
         {
           type: GET_ITEMS
@@ -38,10 +32,7 @@ describe("Get items", () => {
       data: [],
       loading: true,
       error: "",
-      search: {
-        request: "",
-        answer: []
-      }
+      searchRequest: ""
     });
   });
 
@@ -52,10 +43,7 @@ describe("Get items", () => {
           data: [],
           loading: true,
           error: "",
-          search: {
-            request: "",
-            answer: []
-          }
+          searchRequest: ""
         },
         {
           type: GET_ITEMS_SUCCESS,
@@ -66,10 +54,7 @@ describe("Get items", () => {
       data: [{ id: 1 }, { id: 2 }],
       loading: false,
       error: "",
-      search: {
-        request: "",
-        answer: []
-      }
+      searchRequest: ""
     });
   });
 
@@ -80,10 +65,7 @@ describe("Get items", () => {
           data: [],
           loading: true,
           error: "",
-          search: {
-            request: "",
-            answer: []
-          }
+          searchRequest: ""
         },
         {
           type: GET_ITEMS_FAILURE,
@@ -94,10 +76,7 @@ describe("Get items", () => {
       data: [],
       loading: false,
       error: "Something went wrong",
-      search: {
-        request: "",
-        answer: []
-      }
+      searchRequest: ""
     });
   });
 });

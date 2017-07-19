@@ -1,5 +1,5 @@
-import cart from "../reducers/cart.js";
-import { ADD_TO_CART, POP_FROM_CART } from "../actions/index.js";
+import cart from "../cart.js";
+import { ADD_TO_CART, POP_FROM_CART } from "../../actions/index.js";
 
 describe("Adding to cart", () => {
   it("Add to empty cart", () => {

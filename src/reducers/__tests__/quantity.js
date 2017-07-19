@@ -1,5 +1,5 @@
-import cart from "../reducers/cart.js";
-import { INCREASE_QUANTITY, REDUCE_QUANTITY } from "../actions/index.js";
+import cart from "../cart.js";
+import { INCREASE_QUANTITY, REDUCE_QUANTITY } from "../../actions/index.js";
 
 describe("Increase quantity", () => {
   it("Increase quantity in one item cart", () => {

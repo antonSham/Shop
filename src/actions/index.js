@@ -7,7 +7,7 @@ export const INCREASE_QUANTITY = "QUANTITY_INCREASE";
 export const REDUCE_QUANTITY = "QUANTITY_REDUCE";
 export const THROW_ERROR = "THROW_ERROR";
 export const POP_ERROR = "POP_ERROR";
-export const SEARCH = "SEARCH";
+export const CHANGE_SEARCH_REQUEST = "CHANGE_SEARCH_REQUEST";
 
 export const getItems = () => ({ type: GET_ITEMS });
 
@@ -27,4 +27,7 @@ export const throwError = errorMessage => ({ type: THROW_ERROR, errorMessage });
 
 export const popError = id => ({ type: POP_ERROR, id });
 
-export const search = request => ({ type: SEARCH, request });
+export const changeSearchRequest = searchRequest => ({
+  type: CHANGE_SEARCH_REQUEST,
+  searchRequest
+});

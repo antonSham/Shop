@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import Reducer from "./reducers/index.js";
 import Shop from "./components/Shop.js";
 import Cart from "./components/Cart.js";
+import Search from "./components/Search.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
@@ -22,7 +23,8 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path="/" component={Shop} />
-        <Route path="/cart" component={Cart} />
+        <Route exact path="/cart" component={Cart} />
+        <Route path="/search" component={Search} />
       </div>
     </Router>
   </Provider>,

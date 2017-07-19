@@ -3,17 +3,12 @@ import { connect } from "react-redux";
 import { addToCart } from "../actions/index.js";
 
 const mapStateToProps = (state, ownProps) => ({
-  item: state.items.data.filter(item => item.id === ownProps.id)[0],
-  searched: state.items.search.request === "" ||
-            state.items.search.answer.indexOf(ownProps.id) !== -1
+  item: state.items.data.filter(item => item.id === ownProps.id)[0]
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onButtonClick: () => dispatch(addToCart(ownProps.id))
 });
 const Item = ({ searched, item, onButtonClick }) => {
-  if (!searched) {
-    return null;
-  }
   return (
     <div>
       <div className="uk-card uk-card-default uk-grid uk-grid-collapse uk-child-width-1-2@s uk-margin">

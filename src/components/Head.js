@@ -5,17 +5,17 @@ import { bindActionCreators } from "redux";
 import CartLogo from "./CartLogo.js";
 import CartLogoImg from "./CartLogoImg.js";
 import CartBadge from "./CartBadge.js";
-import { search } from "../actions/index.js";
+import { changeSearchRequest } from "../actions/index.js";
 
 const mapStateToProps = (state, ownProps) => ({
   cartItemsCount: state.cart.length,
-  searchRequest: state.items.search.request
+  searchRequest: state.items.searchRequest
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ search }, dispatch);
+  bindActionCreators({ changeSearchRequest }, dispatch);
 
-const Head = ( {cartItemsCount, search, searchRequest} ) =>
+const Head = ( {cartItemsCount, changeSearchRequest, searchRequest} ) =>
   <div className="uk-navbar-container" data-uk-navbar>
     <div className="uk-navbar-left">
       <Link to="/" className="uk-navbar-item uk-logo">
@@ -23,21 +23,18 @@ const Head = ( {cartItemsCount, search, searchRequest} ) =>
       </Link>
     </div>
     <div className="uk-navbar-right">
-      <form className="uk-search uk-search-default uk-background-default"
-        onSubmit={ (event) => {
-          event.preventDefault();
-        }}
-      >
+      <form className="uk-search uk-search-default uk-background-default">
         <span data-uk-search-icon data-uk-icon="icon: search"/>
         <input className="uk-search-input"
                 type="search"
-                onChange={ (event) => {
-                  event.preventDefault();
-                  search(event.target.value);
-                }}
+                placeholder="Search..."
                 value={searchRequest}
-                placeholder="Search..." />
-        <Link to="/"><button type="submit" hidden/></Link>
+                onChange={(event) =>
+                  changeSearchRequest(event.target.value)
+                } />
+        <Link to={"/search/" + searchRequest}>
+          <button type="submit" hidden/>
+        </Link>
       </form>
       <Link to="/Cart" className="uk-navbar-item uk-logo">
         <CartLogo>

@@ -2,7 +2,7 @@ import {
   GET_ITEMS,
   GET_ITEMS_SUCCESS,
   GET_ITEMS_FAILURE,
-  SEARCH
+  CHANGE_SEARCH_REQUEST
 } from "../actions/index.js";
 
 const dataReducer = (state = [], action) => {
@@ -35,40 +35,20 @@ const errorReducer = (state = "", action) => {
   }
 };
 
-const search = (data, request) => (
-  data
-    .filter(
-      el =>
-        el.name
-          .toLowerCase()
-          .replace(/\s+/g, " ")
-          .indexOf(request.toLowerCase()) !== -1
-    )
-    .map(el => el.id)
-);
-
-const searchReducer = (
-  state = { request: "", answer: [] },
-  action,
-  data
-) => {
+const searchReducer = (state = "", action) => {
   switch (action.type) {
-    case SEARCH:
-      return {
-        ...state,
-        request: action.request,
-        answer: search(data, action.request)
-      }
+    case CHANGE_SEARCH_REQUEST:
+      return action.searchRequest;
     default:
       return state;
   }
-};
+}
 
 export default (state = {}, action) => {
   return {
     data: dataReducer(state.data, action),
     loading: loadingReducer(state.loading, action),
     error: errorReducer(state.error, action),
-    search: searchReducer(state.search, action, state.data)
+    searchRequest: searchReducer(state.searchRequest, action)
   };
 };

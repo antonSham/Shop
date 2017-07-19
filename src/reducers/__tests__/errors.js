@@ -1,5 +1,5 @@
-import errors from "../reducers/errors.js";
-import { THROW_ERROR, POP_ERROR } from "../actions/index.js";
+import errors from "../errors.js";
+import { THROW_ERROR, POP_ERROR } from "../../actions/index.js";
 
 describe("Adding error", () => {
   it("Add to empty error list", () => {

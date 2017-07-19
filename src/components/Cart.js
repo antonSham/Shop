@@ -5,6 +5,6 @@ import Layout from "./Layout.js";
 
 export default () =>
   <Layout>
-    <h1>Your Cart:</h1>
+    <h3>Your Cart:</h3>
     <CartGoods />
   </Layout>;
