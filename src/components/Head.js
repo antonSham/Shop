@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import CartLogo from "./CartLogo.js";
@@ -16,23 +16,16 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ changeSearchRequest, search }, dispatch);
 
 class Head extends React.Component{
-  constructor () {
-    super();
-    this.state = {
-      searchRedirect: false
-    }
-  }
 
   submitForm = (event) => {
     event.preventDefault();
-    this.setState({searchRedirect: true})
-    this.props.search()
   }
 
   render = () => {
     var {cartItemsCount,
       changeSearchRequest,
-      searchRequest
+      searchRequest,
+      search
     } = this.props;
     return (
       <div className="uk-navbar-container" data-uk-navbar>
@@ -43,7 +36,10 @@ class Head extends React.Component{
         </div>
         <div className="uk-navbar-right">
           <form className="uk-search uk-search-default uk-background-default"
-            onSubmit={this.submitForm}
+            onSubmit={
+              (event) =>
+                event.preventDefault()
+            }
           >
             <span data-uk-search-icon data-uk-icon="icon: search"/>
             <input className="uk-search-input"
@@ -51,14 +47,13 @@ class Head extends React.Component{
                     name="search"
                     placeholder="Search..."
                     value={searchRequest || ""}
-                    onChange={(event) =>
-                      changeSearchRequest(event.target.value)
-                    }
+                    onChange={(event) => {
+                      changeSearchRequest(event.target.value);
+                      this.props.history.replace("/?search=" + event.target.value);
+                      search();
+                    }}
             />
           </form>
-          {this.state.searchRedirect && (
-            <Redirect to={'/SpecialPage?search=' + searchRequest} />
-          )}
           <Link to="/Cart" className="uk-navbar-item uk-logo">
             <CartLogo>
               <CartLogoImg src={require("../../data/img/cart.gif")} alt="cart" />

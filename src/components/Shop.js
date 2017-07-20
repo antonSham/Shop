@@ -17,7 +17,7 @@ const getSearchRequestFromString = (str) =>
       el => el.value
     )[0]
 
-export default ({location}) =>
-  <Layout>
+export default ({location, history}) =>
+  <Layout history={history}>
     <Goods searchRequest={getSearchRequestFromString(location.search)} />
   </Layout>;

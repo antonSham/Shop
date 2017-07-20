@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import Reducer from "./reducers/index.js";
 import Shop from "./components/Shop.js";
 import Cart from "./components/Cart.js";
-import SpecialPage from "./components/SpecialPage.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
@@ -24,7 +23,6 @@ ReactDOM.render(
       <div>
         <Route exact path="/" component={Shop} />
         <Route exact path="/cart" component={Cart} />
-        <Route path="/SpecialPage" component={SpecialPage} />
       </div>
     </Router>
   </Provider>,
